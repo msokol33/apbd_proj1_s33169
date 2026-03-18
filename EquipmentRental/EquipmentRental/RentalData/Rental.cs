@@ -1,7 +1,7 @@
 ﻿using EquipmentRental.EquipmentData;
 using EquipmentRental.UserData;
 
-namespace EquipmentRental.Rental;
+namespace EquipmentRental.RentalData;
 
 public class Rental
 {
