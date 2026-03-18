@@ -11,9 +11,8 @@ public class Rental
     public DateTime RentFrom { get; set; }
     public DateTime RentTo { get; set; }
     public DateTime? ReturnDate { get; set; }
-    public bool WasReturnInTime { get; set; }
     
-    public decimal Charge { get; set; }
+    public decimal? Charge { get; set; }
 
     public Rental(Guid id, User user, EquipmentBase item, DateTime rentFrom, DateTime rentTo)
     {
@@ -22,6 +21,5 @@ public class Rental
         Item = item;
         RentFrom = rentFrom;
         RentTo = rentTo;
-        WasReturnInTime = ReturnDate < RentTo ? true : false;
     }
 }
