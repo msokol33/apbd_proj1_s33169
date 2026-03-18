@@ -1,4 +1,4 @@
-﻿namespace EquipmentRental.Equipment.Data;
+﻿namespace EquipmentRental.EquipmentData;
 
 public class EquipmentBase(
     Guid id,
@@ -6,8 +6,7 @@ public class EquipmentBase(
     DateTime warrantyFrom,
     DateTime warrantyTo,
     string brand,
-    string model,
-    decimal rentalPrice)
+    string model)
 {
     //id, status, gwarancja, czas wypozyczenia, marka, model, cena
     public Guid Id { get; set; } = id;
@@ -16,5 +15,4 @@ public class EquipmentBase(
     public DateTime WarrantyTo { get; set; } = warrantyTo;
     public string Brand { get; set; } = brand;
     public string Model { get; set; } = model;
-    public decimal RentalPrice { get; set; } = rentalPrice;
 }

@@ -1,4 +1,4 @@
-﻿namespace EquipmentRental.Equipment.Data;
+﻿namespace EquipmentRental.EquipmentData;
 
 public class Chair : EquipmentBase
 {
@@ -10,10 +10,9 @@ public class Chair : EquipmentBase
         DateTime warrantyTo,
         string brand,
         string model,
-        decimal rentalPrice,
         string material,
         string adjustableFeatures
-    ) : this(Guid.NewGuid(), status, warrantyFrom, warrantyTo, brand, model, rentalPrice,
+    ) : this(Guid.NewGuid(), status, warrantyFrom, warrantyTo, brand, model, 
         material, adjustableFeatures)
     {
     }
@@ -25,10 +24,9 @@ public class Chair : EquipmentBase
         DateTime warrantyTo,
         string brand,
         string model,
-        decimal rentalPrice,
         string material,
         string adjustableFeatures
-        ):base(id, status,  warrantyFrom, warrantyTo, brand, model, rentalPrice)
+        ):base(id, status,  warrantyFrom, warrantyTo, brand, model)
     {
         Material = material;
         AdjustableFeatures = adjustableFeatures;

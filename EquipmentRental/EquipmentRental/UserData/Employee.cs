@@ -1,4 +1,4 @@
-﻿namespace EquipmentRental.User.Data;
+﻿namespace EquipmentRental.UserData;
 
 public class Employee : User
 {

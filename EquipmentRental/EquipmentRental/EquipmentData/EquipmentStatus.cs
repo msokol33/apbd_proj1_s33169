@@ -1,4 +1,4 @@
-﻿namespace EquipmentRental.Equipment.Data;
+﻿namespace EquipmentRental.EquipmentData;
 
 public enum EquipmentStatus
 {

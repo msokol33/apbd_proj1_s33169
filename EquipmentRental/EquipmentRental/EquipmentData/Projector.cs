@@ -1,4 +1,4 @@
-﻿namespace EquipmentRental.Equipment.Data;
+﻿namespace EquipmentRental.EquipmentData;
 
 public class Projector : EquipmentBase 
 {
@@ -10,10 +10,9 @@ public class Projector : EquipmentBase
         DateTime warrantyTo,
         string brand,
         string model,
-        decimal rentalPrice,
         int throwRatio,
         int resolution)
-        : this(Guid.NewGuid(), status, warrantyFrom, warrantyTo, brand, model, rentalPrice,
+        : this(Guid.NewGuid(), status, warrantyFrom, warrantyTo, brand, model,
             throwRatio, resolution)
     {
     }
@@ -24,10 +23,9 @@ public class Projector : EquipmentBase
         DateTime warrantyTo,
         string brand,
         string model,
-        decimal rentalPrice,
         int throwRatio,
         int resolution)
-        : base(id, status, warrantyFrom, warrantyTo, brand, model, rentalPrice)
+        : base(id, status, warrantyFrom, warrantyTo, brand, model)
     {
         ThrowRatio = throwRatio;
         Resolution = resolution;

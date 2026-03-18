@@ -1,4 +1,4 @@
-﻿namespace EquipmentRental.Equipment.Data;
+﻿namespace EquipmentRental.EquipmentData;
 
 public class Camera : EquipmentBase
 {
@@ -11,10 +11,9 @@ public class Camera : EquipmentBase
         DateTime warrantyTo,
         string brand,
         string model,
-        decimal rentalPrice,
         int sensorSize,
         int megaPixelCount) 
-        : this(Guid.NewGuid(),  status, warrantyFrom, warrantyTo, brand, model, rentalPrice, sensorSize, megaPixelCount)
+        : this(Guid.NewGuid(),  status, warrantyFrom, warrantyTo, brand, model, sensorSize, megaPixelCount)
     {
     }
 
@@ -26,10 +25,9 @@ public class Camera : EquipmentBase
         DateTime warrantyTo,
         string brand,
         string model,
-        decimal rentalPrice,
         int sensorSize,
         int megaPixelCount
-    ) : base(id, status, warrantyFrom, warrantyTo, brand, model, rentalPrice)
+    ) : base(id, status, warrantyFrom, warrantyTo, brand, model)
     {
         SensorSize = sensorSize;
         MegaPixelCount = megaPixelCount;

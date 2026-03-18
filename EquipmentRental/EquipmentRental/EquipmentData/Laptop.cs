@@ -1,4 +1,4 @@
-﻿namespace EquipmentRental.Equipment.Data;
+﻿namespace EquipmentRental.EquipmentData;
 
 public class Laptop : EquipmentBase 
 {
@@ -11,11 +11,10 @@ public class Laptop : EquipmentBase
         DateTime warrantyTo,
         string brand,
         string model,
-        decimal rentalPrice,
         int batteryLife,
         int screenDiagonal,
         string operatingSystem)
-        : this(Guid.NewGuid(),status, warrantyFrom, warrantyTo, brand, model, rentalPrice, batteryLife,
+        : this(Guid.NewGuid(),status, warrantyFrom, warrantyTo, brand, model, batteryLife,
             screenDiagonal, operatingSystem)
     {
     }
@@ -26,12 +25,11 @@ public class Laptop : EquipmentBase
         DateTime warrantyTo,
         string brand,
         string model,
-        decimal rentalPrice,
         int batteryLife,
         int screenDiagonal,
         string operatingSystem
         )
-        : base(id, status, warrantyFrom, warrantyTo, brand, model, rentalPrice)
+        : base(id, status, warrantyFrom, warrantyTo, brand, model)
     {
         BatteryLife = batteryLife;
         ScreenDiagonal = screenDiagonal;
