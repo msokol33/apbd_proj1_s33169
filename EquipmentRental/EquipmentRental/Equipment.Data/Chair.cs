@@ -1,7 +1,36 @@
 ﻿namespace EquipmentRental.Equipment.Data;
 
-public class Chair(long id, EquipmentStatus status, DateTime warrantyFrom, DateTime warrantyTo, DateTime rentalFrom, DateTime rentalTo, string brand, string model, decimal rentalPrice, string material, string adjustableFeatures) : EquipmentBase(id, status, warrantyFrom, warrantyTo, rentalFrom, rentalTo, brand, model, rentalPrice)
+public class Chair : EquipmentBase
 {
-    public string Material {get; set;} = material;
-    public string AdjustableFeatures {get; set;} = adjustableFeatures;
+    public string Material {get; set;}
+    public string AdjustableFeatures {get; set;}
+
+    public Chair(EquipmentStatus status,
+        DateTime warrantyFrom,
+        DateTime warrantyTo,
+        string brand,
+        string model,
+        decimal rentalPrice,
+        string material,
+        string adjustableFeatures
+    ) : this(Guid.NewGuid(), status, warrantyFrom, warrantyTo, brand, model, rentalPrice,
+        material, adjustableFeatures)
+    {
+    }
+
+    public Chair(
+        Guid id,
+        EquipmentStatus status,
+        DateTime warrantyFrom,
+        DateTime warrantyTo,
+        string brand,
+        string model,
+        decimal rentalPrice,
+        string material,
+        string adjustableFeatures
+        ):base(id, status,  warrantyFrom, warrantyTo, brand, model, rentalPrice)
+    {
+        Material = material;
+        AdjustableFeatures = adjustableFeatures;
+    }
 }

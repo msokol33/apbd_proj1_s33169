@@ -1,8 +1,40 @@
 ﻿namespace EquipmentRental.Equipment.Data;
 
-public class Laptop(long id, EquipmentStatus status, DateTime warrantyFrom, DateTime warrantyTo, DateTime rentalFrom, DateTime rentalTo, string brand, string model, decimal rentalPrice, int batteryLife, string operatingSystem, int screenDiagonal) : EquipmentBase(id, status, warrantyFrom, warrantyTo, rentalFrom, rentalTo, brand, model, rentalPrice)
+public class Laptop : EquipmentBase 
 {
-    public int BatteryLife {get; set;} = batteryLife;
-    public int ScreenDiagonal { get; set; } = screenDiagonal;
-    public string OperatingSystem {get; set;} = operatingSystem;
+    public int BatteryLife {get; set;}
+    public int ScreenDiagonal { get; set; }
+    public string OperatingSystem {get; set;}
+
+    public Laptop(EquipmentStatus status,
+        DateTime warrantyFrom,
+        DateTime warrantyTo,
+        string brand,
+        string model,
+        decimal rentalPrice,
+        int batteryLife,
+        int screenDiagonal,
+        string operatingSystem)
+        : this(Guid.NewGuid(),status, warrantyFrom, warrantyTo, brand, model, rentalPrice, batteryLife,
+            screenDiagonal, operatingSystem)
+    {
+    }
+
+    public Laptop(Guid id,
+        EquipmentStatus status,
+        DateTime warrantyFrom,
+        DateTime warrantyTo,
+        string brand,
+        string model,
+        decimal rentalPrice,
+        int batteryLife,
+        int screenDiagonal,
+        string operatingSystem
+        )
+        : base(id, status, warrantyFrom, warrantyTo, brand, model, rentalPrice)
+    {
+        BatteryLife = batteryLife;
+        ScreenDiagonal = screenDiagonal;
+        OperatingSystem = operatingSystem;
+    }
 }
