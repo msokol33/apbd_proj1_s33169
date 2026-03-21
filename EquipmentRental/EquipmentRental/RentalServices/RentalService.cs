@@ -1,7 +1,5 @@
-﻿using EquipmentRental.EquipmentData;
-using EquipmentRental.Interfaces;
+﻿using EquipmentRental.Interfaces;
 using EquipmentRental.RentalData;
-using EquipmentRental.UserData;
 
 namespace EquipmentRental.RentalServices;
 
@@ -28,7 +26,7 @@ public class RentalService :IRentalService
             throw new InvalidOperationException($"Equipment id {equipmentId}, is not available for rental.");
             
         
-        Rentals.Add(new Rental(Guid.NewGuid(), userId, equipmentId, DateTime.UtcNow, DateTime.UtcNow.AddDays(days)));
+        Rentals.Add(new Rental(Guid.NewGuid(), userId, equipmentId, DateTime.UtcNow, DateTime.UtcNow.AddDays(days), RentalStatus.Active));
         _userService.ManipulateUserRentalCount(userId, false);
         _equipmentService.MarkAsUnavailable(equipmentId);
     }
@@ -58,8 +56,9 @@ public class RentalService :IRentalService
                 break;
         }
         
+        rentalReturn.Status =  RentalStatus.Finished;
         _userService.ManipulateUserRentalCount(rentalReturn.UserId, true);
-        _equipmentService.MarkAsAvailable(rentalReturn.Id);
+        _equipmentService.MarkAsAvailable(rentalReturn.ItemId);
     }
 
     public void DisplayActiveRentalForUser(Guid userId)
@@ -88,6 +87,21 @@ public class RentalService :IRentalService
 
     public void DisplayRentalReport()
     {
+        var activeRentals = Rentals.Where(x => x.Status == RentalStatus.Active).ToList();
+        var finishedRentals = Rentals.Where(x => x.Status == RentalStatus.Finished).ToList();
+        var expiredRentals = Rentals.Where(IsRentalExpired).ToList();
+        Console.WriteLine("=============Rental-Rapport=============");
+        Console.WriteLine($"\nRentals in total: {Rentals.Count}");
+        Console.WriteLine($"\nActive rentals count:  {activeRentals.Count}");
+        Console.WriteLine($"\nFinished rentals count:  {finishedRentals.Count}");
+        Console.WriteLine($"\nExpired rentals count:  {expiredRentals.Count}");
+        Console.WriteLine("\nRentals in details: ");
+        foreach (var rental in expiredRentals)
+        {
+            Console.WriteLine($"\nId: {rental.Id} - Status: {rental.Status} - Return date: {rental.ReturnDate}");
+        }
+        
+        
         
     }
 

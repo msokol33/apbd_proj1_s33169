@@ -11,15 +11,16 @@ public class Rental
     public DateTime RentFrom { get; set; }
     public DateTime RentTo { get; set; }
     public DateTime? ReturnDate { get; set; }
-    
     public decimal? Charge { get; set; }
+    public RentalStatus Status { get; set; }
 
-    public Rental(Guid id, Guid userId, Guid itemId, DateTime rentFrom, DateTime rentTo)
+    public Rental(Guid id, Guid userId, Guid itemId, DateTime rentFrom, DateTime rentTo, RentalStatus status)
     {
         Id = id;
         UserId = userId;
         ItemId = itemId;
         RentFrom = rentFrom;
         RentTo = rentTo;
+        Status = RentalStatus.None;
     }
 }
