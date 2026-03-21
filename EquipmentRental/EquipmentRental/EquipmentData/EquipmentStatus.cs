@@ -3,5 +3,6 @@
 public enum EquipmentStatus
 {
     Available,
-    Unavailable
+    Unavailable,
+    NotInService
 }
