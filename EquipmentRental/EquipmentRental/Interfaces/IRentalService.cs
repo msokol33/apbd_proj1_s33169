@@ -1,12 +1,12 @@
-﻿using EquipmentRental.EquipmentData;
-using EquipmentRental.RentalData;
-using EquipmentRental.UserData;
+﻿using EquipmentRental.RentalData;
 
 namespace EquipmentRental.Interfaces;
 
 public interface IRentalService
 {
     public void Rent(Guid userId, Guid equipmentId, int days);
+
+    public Rental GetRentalByEquipmentId(Guid equipmentId);
 
     public void Return(Rental rental);
 

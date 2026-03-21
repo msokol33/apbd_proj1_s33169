@@ -61,6 +61,7 @@ public class EquipmentService : IEquipmentService
         };
 
         EquipmentList.Add(equipment);
+        Console.WriteLine($"  Dodano sprzęt: [{type}] {brand} {model}");
     }
     
     
@@ -71,6 +72,11 @@ public class EquipmentService : IEquipmentService
         {
             Console.WriteLine($"Brand: {equipment.Brand}, Model:{equipment.Model}, Status:{equipment.Status}");
         }
+    }
+
+    public EquipmentBase GetEquipmentByBrandAndModel(string brand, string model)
+    {
+        return EquipmentList.First(x => x.Brand == brand && x.Model == model);
     }
 
     public void DisplayAvailableEquipment()

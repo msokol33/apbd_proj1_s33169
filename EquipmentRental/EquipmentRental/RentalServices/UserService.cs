@@ -22,12 +22,25 @@ public class UserService : IUserService
             default:
                 throw new ArgumentOutOfRangeException(nameof(type), type, null);
         }
+
+        var added = ListOfUsers.Last();
+        Console.WriteLine($"  Dodano użytkownika: [{type}] {added.Name} {added.Surname}  limit: {added.Limit}");
     }
 
     public User GetUserById(Guid userId)
     {
         var user = ListOfUsers.First(x => x.Id == userId);
         return user;
+    }
+
+    public User GetUserByNameAndSurname(string name, string surname)
+    {
+        return ListOfUsers.First(x => x.Name == name && x.Surname == surname);
+    }
+
+    public IEnumerable<User> GetAllUsers()
+    {
+        return ListOfUsers;
     }
 
     public void ManipulateUserRentalCount(Guid userId, bool isReturn)
