@@ -7,7 +7,7 @@ public class User
     public string Surname { get; set; }
     public int RentalCount { get; set; }
     public int Limit { get; set; }
-    public User(Guid id, string name, string surname, int limit)
+    public User(Guid id, string name, string surname, int limit = 0)
     {
         Id = id;
         Name = name;

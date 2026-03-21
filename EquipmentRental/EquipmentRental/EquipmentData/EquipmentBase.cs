@@ -15,4 +15,5 @@ public class EquipmentBase(
     public DateTime WarrantyTo { get; set; } = warrantyTo;
     public string Brand { get; set; } = brand;
     public string Model { get; set; } = model;
+    public Dictionary<string, object> Extensions { get; set; } = new();
 }
